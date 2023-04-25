@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TeacherBookApi.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FiestName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatronomicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFormTimeNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGroupNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProfessionNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdYearAddNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FiestName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatronomicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFormTimeNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGroupNavigation.IdGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProfessionNavigation.IdProfession)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdYearAddNavigation.IdYear)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdStudent">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdStudent">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdStudent">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TeacherBookApi.Models.Journal>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdGroupNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdStudentNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSubjectNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evaluation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGroupNavigation.IdGroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdStudentNavigation.IdStudent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSubjectNavigation.IdSubject)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdJournal">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdJournal">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdJournal">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

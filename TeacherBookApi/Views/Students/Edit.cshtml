@@ -1,0 +1,64 @@
+﻿@model TeacherBookApi.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdStudent" />
+            <div class="form-group">
+                <label asp-for="FiestName" class="control-label"></label>
+                <input asp-for="FiestName" class="form-control" />
+                <span asp-validation-for="FiestName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatronomicName" class="control-label"></label>
+                <input asp-for="PatronomicName" class="form-control" />
+                <span asp-validation-for="PatronomicName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProfession" class="control-label"></label>
+                <select asp-for="IdProfession" class="form-control" asp-items="ViewBag.IdProfession"></select>
+                <span asp-validation-for="IdProfession" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdFormTime" class="control-label"></label>
+                <select asp-for="IdFormTime" class="form-control" asp-items="ViewBag.IdFormTime"></select>
+                <span asp-validation-for="IdFormTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdGroup" class="control-label"></label>
+                <select asp-for="IdGroup" class="form-control" asp-items="ViewBag.IdGroup"></select>
+                <span asp-validation-for="IdGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdYearAdd" class="control-label"></label>
+                <select asp-for="IdYearAdd" class="form-control" asp-items="ViewBag.IdYearAdd"></select>
+                <span asp-validation-for="IdYearAdd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
