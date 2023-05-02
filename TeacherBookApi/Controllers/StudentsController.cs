@@ -28,7 +28,8 @@ namespace TeacherBookApi.Controllers
           {
               return NotFound();
           }
-            return await _context.Students.ToListAsync();
+            return await _context.Students.Include(x => x.Histories).Include(x => x.Journals).
+                                             ToListAsync();
         }
 
         // GET: api/Students/5

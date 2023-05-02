@@ -20,16 +20,7 @@ namespace TeacherBookApi.Controllers
             _context = context;
         }
 
-        // GET: api/Users
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-        {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
-            return await _context.Users.ToListAsync();
-        }
+       
         /// <summary>
         /// Авторизация
         /// </summary>
